@@ -46,23 +46,21 @@ La aplicación se abrirá automáticamente en el navegador. Se recomienda usar l
 
 ```
 src/app/
-├── tab1/          → Página de Inicio
-├── tab2/          → Página de Información Personal
-├── tab3/          → Página de Contacto
-└── tabs/          → Layout de navegación por pestañas
+├── inicio/          → Página de Inicio
+├── info-personal/   → Página de Información Personal
+├── contacto/        → Página de Contacto
+└── tabs/            → Layout de navegación por pestañas
 ```
 
 ## Stack tecnológico
 
-| Componente | Versión |
-|---|---|
-| Ionic CLI | v7+ |
-| Angular | v17+ |
+| Componente | Versión              |
+| ---------- | -------------------- |
+| Ionic CLI  | v7+                  |
+| Angular    | v17+                 |
 | TypeScript | Incluido con Angular |
-| Node.js | LTS (v20.x / v22.x) |
+| Node.js    | LTS (v20.x / v22.x)  |
 
 ## Autor
 
-**Yannis Iturriago Martínez**
-PNF en Informática — Sexto Semestre
-Universidad Nacional Experimental en Telecomunicaciones e Informática (UNETI)
+Ingeniero en Formación: **Yannis Iturriago Martínez**
