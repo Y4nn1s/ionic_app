@@ -8,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
+  // TODO: comentar
+  nombreEstudiante: string = 'Yannis Iturriago Martínez';
+
+  // TODO: comentar
+  fechaActual: Date = new Date();
+
   constructor() {}
 
 }

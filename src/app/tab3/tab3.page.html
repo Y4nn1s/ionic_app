@@ -1,17 +1,61 @@
+<!-- TODO: comentar -->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Contacto
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- TODO: comentar -->
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Contacto</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list>
+    <ion-item>
+      <!-- TODO: comentar -->
+      <ion-input
+        label="Nombre"
+        labelPlacement="floating"
+        type="text"
+        [(ngModel)]="nombre"
+        placeholder="Ingrese su nombre">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!-- TODO: comentar -->
+      <ion-input
+        label="Correo electrónico"
+        labelPlacement="floating"
+        type="email"
+        [(ngModel)]="correo"
+        placeholder="Ingrese su correo">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <!-- TODO: comentar -->
+      <ion-textarea
+        label="Mensaje"
+        labelPlacement="floating"
+        [(ngModel)]="mensaje"
+        placeholder="Escriba su mensaje"
+        [autoGrow]="true"
+        rows="4">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding">
+    <!-- TODO: comentar -->
+    <ion-button expand="block" (click)="enviarFormulario()">
+      Enviar mensaje
+    </ion-button>
+  </div>
+
 </ion-content>
