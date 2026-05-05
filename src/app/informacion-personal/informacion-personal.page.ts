@@ -8,12 +8,12 @@ interface DatoPersonal {
 }
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'app-informacion-personal',
+  templateUrl: 'informacion-personal.page.html',
+  styleUrls: ['informacion-personal.page.scss'],
   standalone: false,
 })
-export class Tab2Page {
+export class InformacionPersonalPage {
 
   // TODO: comentar
   datosPersonales: DatoPersonal[] = [

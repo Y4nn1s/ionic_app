@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss'],
+  selector: 'app-contacto',
+  templateUrl: 'contacto.page.html',
+  styleUrls: ['contacto.page.scss'],
   standalone: false,
 })
-export class Tab3Page {
+export class ContactoPage {
 
   // TODO: comentar
   nombre: string = '';

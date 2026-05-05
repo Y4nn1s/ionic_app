@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  selector: 'app-inicio',
+  templateUrl: 'inicio.page.html',
+  styleUrls: ['inicio.page.scss'],
   standalone: false,
 })
-export class Tab1Page {
+export class InicioPage {
 
   // TODO: comentar
   nombreEstudiante: string = 'Yannis Iturriago Martínez';
