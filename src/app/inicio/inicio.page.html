@@ -15,28 +15,53 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <ion-card-header>
+  <!-- TODO: comentar -->
+  <ion-grid>
+    <ion-row>
       <!-- TODO: comentar -->
-      <ion-card-title>¡Bienvenido, {{ nombreEstudiante }}!</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p>
-        Esta aplicación fue desarrollada como parte de la materia Programación III (Módulo 2).
-        Contiene tres secciones navegables: Inicio, Información Personal y Contacto.
-        Su propósito es demostrar el uso del framework Ionic con Angular.
-      </p>
-    </ion-card-content>
-  </ion-card>
+      <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2" size-xl="6" offset-xl="3">
+        
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Bienvenido</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Esta aplicación fue desarrollada como parte de la materia Programación III, Módulo 2, en la carrera PNF en Informática de la UNETI. Su propósito es demostrar el uso del framework Ionic con Angular para construir interfaces móviles multiplataforma.</p>
+          </ion-card-content>
+        </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Fecha Actual</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <!-- TODO: comentar -->
-      <p>{{ fechaActual | date:'fullDate' }}</p>
-    </ion-card-content>
-  </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>¿Qué encontrarás aquí?</ion-card-title>
+          </ion-card-header>
+          <ion-list>
+            <ion-item>
+              <ion-icon slot="start" name="home-outline"></ion-icon>
+              <ion-label>Inicio: bienvenida y guía general.</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+              <ion-label>Información: datos del autor de esta aplicación.</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="mail-outline"></ion-icon>
+              <ion-label>Contacto: medios para comunicarte conmigo.</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Fecha actual</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- TODO: comentar -->
+            <p>{{ fechaActual | date:'fullDate' }}</p>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

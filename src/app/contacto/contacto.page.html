@@ -15,47 +15,82 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list>
-    <ion-item>
+  <!-- TODO: comentar -->
+  <ion-grid>
+    <ion-row>
       <!-- TODO: comentar -->
-      <ion-input
-        label="Nombre"
-        labelPlacement="floating"
-        type="text"
-        [(ngModel)]="nombre"
-        placeholder="Ingrese su nombre">
-      </ion-input>
-    </ion-item>
+      <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2" size-xl="6" offset-xl="3">
+        
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Mis medios de contacto</ion-card-title>
+          </ion-card-header>
+          <ion-list>
+            <!-- TODO: comentar -->
+            <ion-item *ngFor="let medio of mediosContacto">
+              <!-- TODO: comentar -->
+              <ion-icon slot="start" [name]="medio.icono"></ion-icon>
+              <ion-label>
+                <!-- TODO: comentar -->
+                <h3>{{ medio.etiqueta }}</h3>
+                <p>{{ medio.valor }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
 
-    <ion-item>
-      <!-- TODO: comentar -->
-      <ion-input
-        label="Correo electrónico"
-        labelPlacement="floating"
-        type="email"
-        [(ngModel)]="correo"
-        placeholder="Ingrese su correo">
-      </ion-input>
-    </ion-item>
+        <h2 class="ion-padding-start ion-margin-top" style="font-weight: 600; color: var(--ion-color-medium);">¿Quieres escribirme?</h2>
 
-    <ion-item>
-      <!-- TODO: comentar -->
-      <ion-textarea
-        label="Mensaje"
-        labelPlacement="floating"
-        [(ngModel)]="mensaje"
-        placeholder="Escriba su mensaje"
-        [autoGrow]="true"
-        rows="4">
-      </ion-textarea>
-    </ion-item>
-  </ion-list>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Envíame un mensaje</ion-card-title>
+          </ion-card-header>
+          <ion-list>
+            <ion-item>
+              <!-- TODO: comentar -->
+              <ion-input
+                label="Nombre"
+                labelPlacement="floating"
+                type="text"
+                [(ngModel)]="nombre"
+                placeholder="Ingrese su nombre">
+              </ion-input>
+            </ion-item>
 
-  <div class="ion-padding">
-    <!-- TODO: comentar -->
-    <ion-button expand="block" (click)="enviarFormulario()">
-      Enviar mensaje
-    </ion-button>
-  </div>
+            <ion-item>
+              <!-- TODO: comentar -->
+              <ion-input
+                label="Correo electrónico"
+                labelPlacement="floating"
+                type="email"
+                [(ngModel)]="correo"
+                placeholder="Ingrese su correo">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <!-- TODO: comentar -->
+              <ion-textarea
+                label="Mensaje"
+                labelPlacement="floating"
+                [(ngModel)]="mensaje"
+                placeholder="Escriba su mensaje"
+                [autoGrow]="true"
+                rows="4">
+              </ion-textarea>
+            </ion-item>
+          </ion-list>
+
+          <div class="ion-padding">
+            <!-- TODO: comentar -->
+            <ion-button expand="block" (click)="enviarMensaje()">
+              Enviar
+            </ion-button>
+          </div>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

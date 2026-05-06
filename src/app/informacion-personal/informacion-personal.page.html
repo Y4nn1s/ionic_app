@@ -15,24 +15,36 @@
     </ion-toolbar>
   </ion-header>
 
-  <div class="avatar-container">
-    <!-- TODO: comentar -->
-    <ion-avatar>
-      <img alt="Avatar del estudiante" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar>
-    <!-- TODO: comentar -->
-    <h2>{{ datosPersonales[0].valor }}</h2>
-  </div>
-
   <!-- TODO: comentar -->
-  <ion-list>
-    <ion-item *ngFor="let dato of datosPersonales">
-      <ion-icon [name]="dato.icono" slot="start"></ion-icon>
-      <ion-label>
-        <h3>{{ dato.etiqueta }}</h3>
-        <p>{{ dato.valor }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <!-- TODO: comentar -->
+      <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2" size-xl="6" offset-xl="3">
+        
+        <div class="avatar-container">
+          <!-- TODO: comentar -->
+          <ion-avatar>
+            <img alt="Avatar del estudiante" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <!-- TODO: comentar -->
+          <h2>{{ datosPersonales[0].valor }}</h2>
+        </div>
+
+        <!-- TODO: comentar -->
+        <ion-list>
+          <ion-item *ngFor="let dato of datosPersonales">
+            <!-- TODO: comentar -->
+            <ion-icon [name]="dato.icono" slot="start"></ion-icon>
+            <ion-label>
+              <!-- TODO: comentar -->
+              <h3>{{ dato.etiqueta }}</h3>
+              <p>{{ dato.valor }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
