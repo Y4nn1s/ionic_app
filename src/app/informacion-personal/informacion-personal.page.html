@@ -1,4 +1,7 @@
-<!-- TODO: comentar -->
+<!--
+Barra superior de la página con el mismo efecto que en el inicio (para iOS)
+y con el nombre "Información personal"
+-->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -7,7 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- TODO: comentar -->
+<!-- El área donde se visualiza todo el contenido de esta página de Información personal -->
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -15,28 +18,36 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- TODO: comentar -->
+  <!-- Organiza el contenido en filas y columnas como mencioné en inicio.page.html -->
   <ion-grid>
     <ion-row>
-      <!-- TODO: comentar -->
+
+      <!--
+      Columna adaptable al tamaño de la pantalla. 
+      Se ve todo ancho desde el móvil y en pantallas grandes, estrecho
+      -->
       <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2" size-xl="6" offset-xl="3">
         
         <div class="avatar-container">
-          <!-- TODO: comentar -->
+          
+          <!-- Imágen típica de usuario para acompañar mi nombre -->
           <ion-avatar>
             <img alt="Avatar del estudiante" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
           </ion-avatar>
-          <!-- TODO: comentar -->
+          
+          <!-- Tiene la función de mostrar el nombre completo, el cual es el primer dato de la lista (0) -->
           <h2>{{ datosPersonales[0].valor }}</h2>
         </div>
 
-        <!-- TODO: comentar -->
+        <!-- Lista que recorre todos los datos personales y los expone uno por uno -->
         <ion-list>
           <ion-item *ngFor="let dato of datosPersonales">
-            <!-- TODO: comentar -->
+            
+            <!-- Hace que el ícono cambie de acuerdo a el dato correspondiente -->
             <ion-icon [name]="dato.icono" slot="start"></ion-icon>
             <ion-label>
-              <!-- TODO: comentar -->
+              
+              <!-- Organización de etiqueta arriba y el dato correspondiente debajo -->
               <h3>{{ dato.etiqueta }}</h3>
               <p>{{ dato.valor }}</p>
             </ion-label>

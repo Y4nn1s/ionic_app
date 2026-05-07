@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 })
 export class InicioPage {
 
-  // TODO: comentar
+  // Como añadido, quise implementar esta función para demostrar que el controlador se comunica con la interfaz.
+  // Al declarar la variable "fechaActual" y el dato dinámico, captura el momento exacto
+  // en el que el usuario entra a la pantalla de inicio
   fechaActual: Date = new Date();
 
   constructor() {}

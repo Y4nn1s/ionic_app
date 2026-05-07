@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-// TODO: comentar
+// Define la estructura o el orden que debe tener la lista de datos personales.
+// En este caso, una etiqueta, un valor y un ícono. Todo como dato tipo "cadena de texto"
 interface DatoPersonal {
   etiqueta: string;
   valor: string;
@@ -15,7 +16,7 @@ interface DatoPersonal {
 })
 export class InformacionPersonalPage {
 
-  // TODO: comentar
+  // Se introducen los datos de acuerdo al tipo de dato correspondiente junto con su ícono
   datosPersonales: DatoPersonal[] = [
     { etiqueta: 'Nombre completo', valor: 'Yannis Iturriago Martínez', icono: 'person-outline' },
     { etiqueta: 'Cédula', valor: 'V29797308', icono: 'card-outline' },

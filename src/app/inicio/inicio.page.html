@@ -1,4 +1,10 @@
-<!-- TODO: comentar -->
+
+<!-- Plantilla general que expondrá la vista de Inicio en el navegador -->
+
+<!--
+El elemento [translucent]="true" permite que el header tenga un efecto
+translúcido al hacer scroll en dispositivos iOS
+-->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -7,20 +13,34 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- TODO: comentar -->
+<!-- Este es el contenedor principal.
+El parámetro 'fullscreen' hace que se extienda el contenido
+detrás del header que es translúcido.
+-->
 <ion-content [fullscreen]="true">
+  <!-- 
+  Otro efecto estilo iOS donde se produce un colapso y fusión del título
+  grande con el header principal al hacer scroll hacia abajo
+  -->
   <ion-header collapse="condense">
     <ion-toolbar>
+      <!-- Título de la barra superior -->
       <ion-title size="large">Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <!-- TODO: comentar -->
+  <!--
+  Esto permite organizar el contenido en filas y columnas
+  que son adaptables según el tamaño de la pantalla
+  -->
   <ion-grid>
     <ion-row>
-      <!-- TODO: comentar -->
       <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2" size-xl="6" offset-xl="3">
         
+        <!--
+        Primera tarjeta que se visualiza en el inicio.
+        Aquí se expone la bienvenida y la finalidad de la aplicación
+        -->
         <ion-card>
           <ion-card-header>
             <ion-card-title>Bienvenido</ion-card-title>
@@ -30,6 +50,10 @@
           </ion-card-content>
         </ion-card>
 
+        <!--
+        Segunda tarjeta donde se visualiza una guía de navegación en la aplicación.
+        Lo que se encontrará en cada pestaña de la navbar
+        -->
         <ion-card>
           <ion-card-header>
             <ion-card-title>¿Qué encontrarás aquí?</ion-card-title>
@@ -50,12 +74,14 @@
           </ion-list>
         </ion-card>
 
+        <!-- Tercera tarjeta donde se muestra la fecha actual -->
         <ion-card>
           <ion-card-header>
             <ion-card-title>Fecha actual</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <!-- TODO: comentar -->
+            
+            <!-- Aquí expone la propiedad que fue definida en inicio.page.ts -->
             <p>{{ fechaActual | date:'fullDate' }}</p>
           </ion-card-content>
         </ion-card>

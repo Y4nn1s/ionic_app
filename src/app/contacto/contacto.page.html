@@ -1,4 +1,4 @@
-<!-- TODO: comentar -->
+<!-- Barra superior de la página con título "Contacto" -->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- TODO: comentar -->
+<!-- Área general donde se muestra toda el contenido de la página -->
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -15,10 +15,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- TODO: comentar -->
+  <!-- De la misma manera que las plantillas anteriores, organiza el contenido en filas y columnas -->
   <ion-grid>
     <ion-row>
-      <!-- TODO: comentar -->
+      
+      <!-- Columna adaptable al tamaño de la página -->
       <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2" size-xl="6" offset-xl="3">
         
         <ion-card>
@@ -26,12 +27,15 @@
             <ion-card-title>Mis medios de contacto</ion-card-title>
           </ion-card-header>
           <ion-list>
-            <!-- TODO: comentar -->
+            
+            <!-- Este componente recorre la lista de medios de contacto y expone cada uno como un "item"  -->
             <ion-item *ngFor="let medio of mediosContacto">
-              <!-- TODO: comentar -->
+            
+              <!-- Habilita y muestra un ícono el cual cambia de acuerdo al medio (correo, teléfono, etc) -->
               <ion-icon slot="start" [name]="medio.icono"></ion-icon>
               <ion-label>
-                <!-- TODO: comentar -->
+                
+                <!-- Organización de etiqueta arriba y el valor correspondiente debajo -->
                 <h3>{{ medio.etiqueta }}</h3>
                 <p>{{ medio.valor }}</p>
               </ion-label>
@@ -47,7 +51,11 @@
           </ion-card-header>
           <ion-list>
             <ion-item>
-              <!-- TODO: comentar -->
+              
+              <!--
+                Crea el campo de texto para el input del nombre.
+                Está conectado a la variable "nombre" del componente con "ngModel".
+              -->
               <ion-input
                 label="Nombre"
                 labelPlacement="floating"
@@ -58,7 +66,13 @@
             </ion-item>
 
             <ion-item>
-              <!-- TODO: comentar -->
+              
+              <!--
+                Crea el campo de texto para el input del correo electrónico.
+                Está conectado a la variable "correo".
+                El 'type="email"' valida el formato y habilita el teclado de
+                correo electrónico en el móvil.
+              -->
               <ion-input
                 label="Correo electrónico"
                 labelPlacement="floating"
@@ -69,7 +83,11 @@
             </ion-item>
 
             <ion-item>
-              <!-- TODO: comentar -->
+              
+              <!--
+                Proporciona el área grande de texto para el mensaje.
+                Puede crecer automáticamente al escribir y empieza con 4 filas.
+              -->
               <ion-textarea
                 label="Mensaje"
                 labelPlacement="floating"
@@ -82,7 +100,8 @@
           </ion-list>
 
           <div class="ion-padding">
-            <!-- TODO: comentar -->
+            
+            <!-- Un botón que ocupa todo el ancho y llama a la función "enviarMensaje()" al hacer click en él -->
             <ion-button expand="block" (click)="enviarMensaje()">
               Enviar
             </ion-button>

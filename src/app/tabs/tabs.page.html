@@ -1,16 +1,45 @@
+
+<!-- 
+Este es el archivo maestro de navegación.
+Con "ion-tabs" se envuelve toda la lógica de las
+secciones principales: Inicio, Información Personal y Contacto. 
+-->
 <ion-tabs>
 
+  <!--
+  ion-tab-bar es un componente donde se comienza a estructurar el esqueleto de la barra.
+  Configuré el "slot=bottom" para que la barra esté visualizada en la parte inferior.
+  Este parámetro "slot=bottom" le indica a "ion-tab-bar" dónde posicionarse
+  para que pueda ejecutar su función de forma correcta.
+  -->
   <ion-tab-bar slot="bottom">
+
+    <!-- Botón de la ruta hija inicio -->
+    <!-- 
+    Cada botón tiene su propio ID único para el estado visual
+    y una ruta "href" que coincide con el archivo "app-routin.module.ts"
+    -->
     <ion-tab-button tab="inicio" href="/tabs/inicio">
+      
+      <!--
+      La etiqueta 'ion-icon' permite la inserción de iconos HTML en la app,
+      llamando al tipo de ícono con 'name=""'.
+      El parámetro 'aria-hidden="true"' se usa para que el lector de pantalla 
+      ignore por completo el ícono y la lectura sea sencilla y óptima
+      -->
       <ion-icon aria-hidden="true" name="home-outline"></ion-icon>
+
+      <!-- Etiqueta de texto descriptivo para el botón -->
       <ion-label>Inicio</ion-label>
     </ion-tab-button>
 
+    <!-- Botón de la ruta hija información personal -->
     <ion-tab-button tab="informacion-personal" href="/tabs/informacion-personal">
       <ion-icon aria-hidden="true" name="person-outline"></ion-icon>
       <ion-label>Información</ion-label>
     </ion-tab-button>
 
+    <!-- Botón de la ruta hija contacto -->
     <ion-tab-button tab="contacto" href="/tabs/contacto">
       <ion-icon aria-hidden="true" name="mail-outline"></ion-icon>
       <ion-label>Contacto</ion-label>
