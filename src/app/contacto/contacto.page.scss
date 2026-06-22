@@ -1,0 +1,34 @@
+// Estilos para la página de Contacto.
+
+.titulo-seccion {
+  font-weight: 600;
+  color: var(--ion-color-medium);
+}
+
+// Contenedor de los mensajes de error de validación.
+// Ubicado debajo del campo correspondiente con un margen sutil.
+.mensajes-error {
+  padding: 4px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mensajes-error ion-text {
+  display: block;
+}
+
+// Vista previa del mensaje en la tarjeta de histórico.
+// Se limita altura visible y agrega puntos suspensivos si excede el texto.
+.mensaje-preview {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.fecha-envio {
+  font-size: 0.75rem;
+  color: var(--ion-color-medium);
+  margin-top: 2px;
+}

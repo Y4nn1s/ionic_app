@@ -1,13 +1,10 @@
-<!-- Barra superior de la página con título "Contacto" -->
+<!-- Barra superior -->
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Contacto
-    </ion-title>
+    <ion-title>Contacto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<!-- Área general donde se muestra todo el contenido de la página -->
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -15,27 +12,19 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- De la misma manera que las plantillas anteriores, organiza el contenido en filas y columnas -->
   <ion-grid>
     <ion-row>
-      
-      <!-- Columna adaptable al tamaño de la página -->
       <ion-col size="12" size-md="10" offset-md="1" size-lg="8" offset-lg="2" size-xl="6" offset-xl="3">
-        
+
+        <!-- Tarjeta 1: Lista estática de medios de contacto -->
         <ion-card>
           <ion-card-header>
             <ion-card-title>Mis medios de contacto</ion-card-title>
           </ion-card-header>
           <ion-list>
-            
-            <!-- Este componente recorre la lista de medios de contacto y expone cada uno como un "item"  -->
             <ion-item *ngFor="let medio of mediosContacto">
-            
-              <!-- Habilita y muestra un ícono el cual cambia de acuerdo al medio (correo, teléfono, etc) -->
               <ion-icon slot="start" [name]="medio.icono"></ion-icon>
               <ion-label>
-                
-                <!-- Organización de etiqueta arriba y el valor correspondiente debajo -->
                 <h3>{{ medio.etiqueta }}</h3>
                 <p>{{ medio.valor }}</p>
               </ion-label>
@@ -43,67 +32,135 @@
           </ion-list>
         </ion-card>
 
-        <h2 class="ion-padding-start ion-margin-top" style="font-weight: 600; color: var(--ion-color-medium);">¿Quieres escribirme?</h2>
+        <h2 class="ion-padding-start ion-margin-top titulo-seccion">¿Quieres escribirme?</h2>
 
+        <!-- Tarjeta 2: Formulario reactivo de envío -->
         <ion-card>
           <ion-card-header>
             <ion-card-title>Envíame un mensaje</ion-card-title>
           </ion-card-header>
+
+          <!-- El atributo [formGroup] vincula la etiqueta form con el FormGroup declarado en el componente -->
+          <!-- (ngSubmit) escucha el envío y dispara el método -->
+          <form [formGroup]="contactoForm" (ngSubmit)="enviarMensaje()">
+            <ion-list>
+
+              <!-- Campo Nombre -->
+              <ion-item>
+                <ion-input
+                  label="Nombre"
+                  labelPlacement="floating"
+                  type="text"
+                  formControlName="nombre"
+                  placeholder="Ingrese su nombre">
+                </ion-input>
+              </ion-item>
+
+              <!-- Bloque de errores del campo Nombre -->
+              <!-- Solo se muestran si el control está tocado y tiene errores activos -->
+              <div class="mensajes-error" *ngIf="nombre?.touched && nombre?.invalid">
+                <ion-text color="danger" *ngIf="nombre?.errors?.['required']">
+                  <small>El nombre es obligatorio.</small>
+                </ion-text>
+                <ion-text color="danger" *ngIf="nombre?.errors?.['minlength']">
+                  <small>El nombre debe tener al menos 3 caracteres.</small>
+                </ion-text>
+                <ion-text color="danger" *ngIf="nombre?.errors?.['maxlength']">
+                  <small>El nombre no puede exceder los 50 caracteres.</small>
+                </ion-text>
+              </div>
+
+              <!-- Campo Correo -->
+              <ion-item>
+                <ion-input
+                  label="Correo electrónico"
+                  labelPlacement="floating"
+                  type="email"
+                  formControlName="correo"
+                  placeholder="Ingrese su correo">
+                </ion-input>
+              </ion-item>
+
+              <div class="mensajes-error" *ngIf="correo?.touched && correo?.invalid">
+                <ion-text color="danger" *ngIf="correo?.errors?.['required']">
+                  <small>El correo es obligatorio.</small>
+                </ion-text>
+                <ion-text color="danger" *ngIf="correo?.errors?.['email']">
+                  <small>El formato del correo no es válido.</small>
+                </ion-text>
+              </div>
+
+              <!-- Campo Mensaje -->
+              <ion-item>
+                <ion-textarea
+                  label="Mensaje"
+                  labelPlacement="floating"
+                  formControlName="mensaje"
+                  placeholder="Escriba su mensaje"
+                  [autoGrow]="true"
+                  rows="4">
+                </ion-textarea>
+              </ion-item>
+
+              <div class="mensajes-error" *ngIf="mensaje?.touched && mensaje?.invalid">
+                <ion-text color="danger" *ngIf="mensaje?.errors?.['required']">
+                  <small>El mensaje es obligatorio.</small>
+                </ion-text>
+                <ion-text color="danger" *ngIf="mensaje?.errors?.['minlength']">
+                  <small>El mensaje debe tener al menos 10 caracteres.</small>
+                </ion-text>
+                <ion-text color="danger" *ngIf="mensaje?.errors?.['maxlength']">
+                  <small>El mensaje no puede exceder los 500 caracteres.</small>
+                </ion-text>
+              </div>
+            </ion-list>
+
+            <div class="ion-padding">
+              
+              <!-- El botón se deshabilita si el formulario es inválido o si hay un envío en curso. -->
+              <ion-button
+                expand="block"
+                type="submit"
+                [disabled]="contactoForm.invalid || enviando">
+                <ion-icon name="paper-plane-outline" slot="start" *ngIf="!enviando"></ion-icon>
+                <ion-spinner name="dots" *ngIf="enviando"></ion-spinner>
+                <span *ngIf="!enviando">Enviar</span>
+                <span *ngIf="enviando">&nbsp;Enviando...</span>
+              </ion-button>
+            </div>
+          </form>
+        </ion-card>
+
+        <!-- Tarjeta 3: Histórico de mensajes enviados desde este dispositivo -->
+        <ion-card *ngIf="historial.length > 0">
+          <ion-card-header>
+            <ion-card-title>Mensajes enviados</ion-card-title>
+            <ion-card-subtitle>{{ historial.length }} mensaje(s) registrado(s) localmente</ion-card-subtitle>
+          </ion-card-header>
+
           <ion-list>
-            <ion-item>
-              
-              <!--
-                Crea el campo de texto para el input del nombre.
-                Está conectado a la variable "nombre" del componente con "ngModel".
-              -->
-              <ion-input
-                label="Nombre"
-                labelPlacement="floating"
-                type="text"
-                [(ngModel)]="nombre"
-                placeholder="Ingrese su nombre">
-              </ion-input>
-            </ion-item>
-
-            <ion-item>
-              
-              <!--
-                Crea el campo de texto para el input del correo electrónico.
-                Está conectado a la variable "correo".
-                El 'type="email"' valida el formato y habilita el teclado de
-                correo electrónico en el móvil.
-              -->
-              <ion-input
-                label="Correo electrónico"
-                labelPlacement="floating"
-                type="email"
-                [(ngModel)]="correo"
-                placeholder="Ingrese su correo">
-              </ion-input>
-            </ion-item>
-
-            <ion-item>
-              
-              <!--
-                Proporciona el área grande de texto para el mensaje.
-                Puede crecer automáticamente al escribir y empieza con 4 filas.
-              -->
-              <ion-textarea
-                label="Mensaje"
-                labelPlacement="floating"
-                [(ngModel)]="mensaje"
-                placeholder="Escriba su mensaje"
-                [autoGrow]="true"
-                rows="4">
-              </ion-textarea>
+            <ion-item *ngFor="let item of historial">
+              <ion-icon
+                slot="start"
+                [name]="item.estado === 'enviado' ? 'checkmark-circle-outline' : 'alert-circle-outline'"
+                [color]="item.estado === 'enviado' ? 'success' : 'danger'">
+              </ion-icon>
+              <ion-label>
+                <h3>{{ item.nombre }} &lt;{{ item.correo }}&gt;</h3>
+                <p class="mensaje-preview">{{ item.mensaje }}</p>
+                <p class="fecha-envio">{{ item.fechaEnvio | date:'short' }}</p>
+              </ion-label>
             </ion-item>
           </ion-list>
 
           <div class="ion-padding">
-            
-            <!-- Un botón que ocupa todo el ancho y llama a la función "enviarMensaje()" al hacer clic en él -->
-            <ion-button expand="block" (click)="enviarMensaje()">
-              Enviar
+            <ion-button
+              expand="block"
+              fill="outline"
+              color="medium"
+              (click)="limpiarHistorial()">
+              <ion-icon name="trash-outline" slot="start"></ion-icon>
+              Limpiar histórico
             </ion-button>
           </div>
         </ion-card>
@@ -111,5 +168,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>
